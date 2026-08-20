@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk Awaa❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    color:white;
+    background: linear-gradient(
+        135deg,
+        #12000d,
+        #3d0b2e,
+        #7b174c,
+        #1a0014
+    );
+    background-size:400% 400%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* HALAMAN AWAL */
+.start-screen{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:linear-gradient(135deg,#18000f,#5b123b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.start-box{
+    padding:40px;
+}
+
+.start-box h1{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.start-box p{
+    opacity:.8;
+    margin-bottom:30px;
+}
+
+.start-btn{
+    border:none;
+    padding:15px 35px;
+    border-radius:50px;
+    background:#ff4f87;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 0 30px #ff4f87;
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:scale(1.1);
+}
+
+/* KONTEN */
+.container{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.heart{
+    font-size:70px;
+    animation: heartbeat 1.5s infinite;
+    filter:drop-shadow(0 0 20px #ff4f87);
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+h1{
+    font-size:clamp(2rem,7vw,4rem);
+    margin-top:15px;
+}
+
+.subtitle{
+    margin-top:10px;
+    color:#ffd4e3;
+    font-size:16px;
+}
+
+/* FOTO */
+.video-frame{
+    width:280px;
+    height:360px;
+    margin:35px 0;
+    padding:8px;
+    border-radius:25px;
+    background:linear-gradient(
+        135deg,
+        #ffb3cb,
+        #ff3f78,
+        #ffffff
+    );
+
+    box-shadow:
+        0 0 30px rgba(255,70,130,.6),
+        0 0 70px rgba(255,70,130,.3);
+
+    transform:rotate(-2deg);
+    transition:.4s;
+    overflow:hidden;
+}
+
+.video-frame:hover{
+    transform:rotate(0deg) scale(1.04);
+}
+
+.video-frame video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+    display:block;
+  }
+  
+/* PESAN */
+.message{
+    max-width:600px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 10px 50px rgba(0,0,0,.3);
+}
+
+.message h2{
+    color:#ff9fbd;
+    margin-bottom:15px;
+}
+
+.message p{
+    line-height:1.8;
+    color:#ffe6ef;
+}
+
+/* TOMBOL PESAN */
+.love-btn{
+    margin-top:25px;
+    padding:13px 28px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(45deg,#ff3975,#ff75a0);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.love-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px #ff4f87;
+}
+
+.hidden-message{
+    margin-top:20px;
+    display:none;
+    color:#ffd1df;
+    font-size:17px;
+}
+
+.hidden-message.show{
+    display:block;
+    animation:fade .8s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MUSIK */
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    background:#ff4f87;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 0 25px #ff4f87;
+}
+
+/* HATI JATUH */
+.floating-heart{
+    position:fixed;
+    top:-50px;
+    color:#ff6b9b;
+    animation:fall linear forwards;
+    pointer-events:none;
+    z-index:50;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN PEMBUKA -->
+<div class="start-screen" id="startScreen">
+    <div class="start-box">
+        <div style="font-size:70px;">💌</div>
+
+        <h1>Ada sesuatu untuk kamu...</h1>
+
+        <p>Tekan tombol di bawah ini ❤️</p>
+
+        <button class="start-btn" onclick="openLove()">
+            Buka Pesan 💖
+        </button>
+    </div>
+</div>
+
+
+<!-- MUSIK -->
+<audio id="music" loop>
+    <source src="ssstik.io_1787239822186.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- WEBSITE -->
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Untuk Kamu, Sayangku Awaa</h1>
+
+    <p class="subtitle">
+        Sebuah halaman kecil untuk seseorang yang sangat berarti 💕
+    </p>
+
+
+    <!-- FOTO -->
+    <div class="video-frame">
+    <video autoplay muted loop playsinline>
+        <source src="yeyyy.mp4" type="video/mp4">
+        Browser kamu tidak mendukung video.
+    </video>
+    </div>
+
+
+    <!-- PESAN -->
+    <div class="message">
+
+        <h2>💌 Pesan Untukmu</h2>
+
+        <p>
+            Entah kenapa, sejak kamu hadir,
+            semuanya terasa sedikit lebih indah.
+            Hari-hari yang biasa saja menjadi lebih berwarna,
+            dan senyummu selalu punya cara
+            untuk membuat hariku lebih baik.
+            <br><br>
+
+            Aku mungkin tidak sempurna,
+            tapi kalau ada satu hal yang ingin selalu aku perjuangkan,
+            itu adalah <b>kamu ❤️</b>
+        </p>
+
+        <button class="love-btn" onclick="showMessage()">
+            Tekan Ini 💖
+        </button>
+
+        <div class="hidden-message" id="hiddenMessage">
+            ❤️ Aku cuma mau bilang...  
+            <br><br>
+            <b>Aku sayang kamu, hari ini, besok, dan seterusnya.</b>
+            <br><br>
+            Jangan pergi ya... 🥺💕
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOMBOL MUSIK -->
+<button class="music-btn" onclick="toggleMusic()">
+    🎵
+</button>
+
+
+<script>
+
+/* BUKA WEBSITE */
+function openLove(){
+
+    document.getElementById("startScreen").style.display = "none";
+
+    const music = document.getElementById("music");
+
+    music.play();
+
+}
+
+
+/* MUSIK */
+let playing = true;
+
+function toggleMusic(){
+
+    const music = document.getElementById("music");
+
+    if(playing){
+        music.pause();
+        playing = false;
+    }else{
+        music.play();
+        playing = true;
+    }
+
+}
+
+
+/* PESAN RAHASIA */
+function showMessage(){
+
+    document
+    .getElementById("hiddenMessage")
+    .classList.toggle("show");
+
+}
+
+
+/* HATI BERJATUHAN */
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("floating-heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        Math.random() * 25 + 15 + "px";
+
+    heart.style.animationDuration =
+        Math.random() * 3 + 4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },7000);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
